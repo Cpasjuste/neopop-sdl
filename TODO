@@ -1,0 +1,16 @@
+bugs:
+. get exactly one frame's worth of DAC data each frame
+. convert DAC sound ourselves (SDL is broken)
+. comm: send and handle pause/unpause packets
+. comm support not working
+
+features:
+. auto frame skip rate
+. hqx i386 asm versions
+. configure: test for altivec
+. movie captures
+. reset game
+. change emulation speed (run faster/slower)
+. gui menu
+. speedup (sound, cpu)
+. speed up 2x/3x modes

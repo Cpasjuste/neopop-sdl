@@ -1,0 +1,308 @@
+.\" $NiH: NeoPop-SDL.mdoc,v 1.21 2004/07/25 11:10:25 wiz Exp $
+.\"
+.\" Copyright (c) 2003, 2004 Thomas Klausner and Dieter Baron.
+.\" All rights reserved.
+.\"
+.\" Redistribution and use in source and binary forms, with or without
+.\" modification, are permitted provided that the following conditions
+.\" are met:
+.\" 1. Redistributions of source code must retain the above copyright
+.\"    notice, this list of conditions and the following disclaimer.
+.\" 2. Redistributions in binary form must reproduce the above
+.\"    copyright notice, this list of conditions and the following
+.\"    disclaimer in the documentation and/or other materials provided
+.\"    with the distribution.
+.\" 3. The name of the author may not be used to endorse or promote
+.\"    products derived from this software without specific prior
+.\"    written permission.
+.\"
+.\" THIS SOFTWARE IS PROVIDED BY THOMAS KLAUSNER ``AS IS'' AND ANY
+.\" EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+.\" IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+.\" PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE FOUNDATION OR
+.\" CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+.\" SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+.\" LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+.\" USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+.\" ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+.\" OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+.\" OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+.\" SUCH DAMAGE.
+.Dd July 25, 2004
+.Dt NEOPOP-SDL 6
+.Os
+.Sh NAME
+.Nm NeoPop-SDL
+.Nd NeoGeo Pocket (Color) emulator
+.Sh SYNOPSIS
+.Nm
+.Op Fl ceghjMmSsv
+.Op Fl C Ar mode
+.Op Fl f Ar count
+.Op Fl l Ar state
+.Op Fl P Ar port
+.Op Fl R Ar host
+.Op Fl y Ar mode
+.Ar filename
+.Sh DESCRIPTION
+.Nm
+is the SDL port of NeoPop, a portable NeoGeo Pocket emulator.
+It supports black\*[Am]white and color games, game state saving,
+screenshots (BMP and PNG), sound and music, double- and
+triple-size both in software and hardware scaling as well as
+full-screen-modes, joysticks and keyboard input, and reading from
+ZIP files.
+.Pp
+All options can be specified in the config file,
+.Xr neopoprc 5 ,
+or on the command line.
+Command-line options override config file settings.
+.Pp
+The following options are supported:
+.Bl -tag -width XfXcountXX
+.It Fl C Ar mode
+Describes the role
+.Nm
+should play with regard to network play:
+.Bl -tag -width XserverXX -offset indent -compact
+.It Dv none
+Disable network play.
+.It Dv server
+Have client connect to us (start first).
+.It Dv client
+Connect to server.
+.El
+Defaults to
+.Dv none .
+.It Fl c
+Start in colour mode (default: automatic).
+See also
+.Fl g .
+.It Fl e
+Emulate an English language NeoGeo Pocket (default).
+See also
+.Fl j .
+.It Fl f Ar count
+Set frameskip to
+.Ar count .
+The default frameskip is 1.
+Frameskip 2 means that every second frame is shown, thus increasing
+emulation speed since showing the graphics on screen is skipped
+half of the time.
+However, animation will be less smooth.
+.It Fl g
+Start in greyscale mode (default: automatic).
+See also
+.Fl c .
+.It Fl h
+Show a short help message explaining the options.
+.It Fl j
+Emulate a Japanese language NeoGeo Pocket.
+Some ROMs will show Japanese text instead of English
+if this option is chosen.
+See also
+.Fl e .
+.It Fl l Ar state
+Load start emulator state from file
+.Ar state .
+See the description for the
+.Ic F4
+key below.
+.It Fl M
+Do not use smoothed magnification modes.
+See also
+.Fl m .
+.It Fl m
+Use smoothed magnification modes (default).
+In double- and triple-size mode, the graphics will look less
+blocky, but this option has quite a performance impact.
+.It Fl P Ar port
+Which TCP port to use for network play.
+Defaults to 7846.
+.It Fl R Ar host
+Hostname of the server for network play.
+.It Fl S
+Silent mode.
+Sounds and music are not played.
+See also
+.Fl s .
+.It Fl s
+Sounds and music are played (default).
+See also
+.Fl S .
+.It Fl V
+Display the version number.
+.It Fl y Ar mode
+Specify when to use YUV overlay, can be one of
+.Dv never , fullscreen , magnified ,
+or
+.Dv always .
+Default is
+.Dv magnified .
+Using YUV overlay allows hardware accelerated scaling on most newer
+graphics cards.
+.El
+.Ar filename
+should obviously be a NeoGeo Pocket ROM file, unzipped or zipped.
+.Ss KEYS
+The keys can be specified in the config file,
+.Xr neopoprc 5 .
+The following are the default keys.
+.Pp
+For movement, use either the cursor keys or
+.Ic I
+for up,
+.Ic K
+for down,
+.Ic J
+for left, and
+.Ic L
+for right.
+.Pp
+The buttons are:
+.Bl -tag -width XoptionXbuttonX
+.It Button A
+.Ic A
+or
+.Ic SHIFT .
+.It Button B
+.Ic S
+or
+.Ic CTRL .
+.It Option button
+.Ic D
+or
+.Ic TAB .
+.El
+.Pp
+Other keys:
+.Pp
+.Ic M
+toggles music and sound effects during game.
+.Pp
+.Ic 1 ,
+.Ic 2 ,
+and
+.Ic 3
+set the magnication factor:
+.Ic 1
+is normal (160x152),
+.Ic 2
+is doubled in both directions, and
+.Ic 3
+tripled.
+Please note that bigger screens are slower to display
+(except if hardware scaling is enabled),
+even more so if smooth magnification is enabled (see
+.Fl m
+and
+.Ic B
+below).
+Magnification is ignored in YUV fullscreen mode.
+.Pp
+.Ic B
+toggles between blocky and smooth magnification (defaults
+to smooth).
+The algorithm used for smooth 2x magnification is hq2x,
+the one used for 3x magification is hq3x.
+Smooth animation is definitely slower than blocky.
+.Pp
+.Ic F
+switches between full-screen and windowed mode.
+.Pp
+.Ic \&+
+and
+.Ic \&=
+increase frameskip while
+.Ic \&-
+decreases frameskip.
+The default frameskip is one, if the
+.Fl f
+option was not used.
+A frameskip of
+.Ar n
+means one in
+.Ar n
+frames is shown, thus speeding up emulation at the
+cost of less smooth animation.
+.Pp
+.Ic F3
+loads and
+.Ic F4
+writes the current emulator state from/to
+.Ar filename.ngs
+(or
+.Ar filename.ngX
+with
+.Ar X
+from 0 to 9 for the numbered save slots)
+in the directory configured in
+.Xr neopoprc 5
+(defaults to
+.Dq Pa \&.neopop/flash ) .
+The emulator state
+contains all the necessary information to continue
+emulation at the exact same place at some later
+time (i.e., when it is loaded again via
+.Ic F3
+or the
+.Fl l
+command line flag.)
+.Ar filename
+depends on the
+.Dv use-rom-name
+setting in
+.Xr neopoprc 5 .
+.Pp
+.Ic F12
+saves a screenshot in the directory configured in
+.Xr neopoprc 5
+(defaults to
+.Dq Pa \&. ) .
+The name of the output file is
+.Dq Pa filenameXXX.ext ,
+where
+.Ar XXX
+is the number of the screenshot starting from 0; special
+care is taken not to overwrite existing screenshots.
+If the PNG library was found during compilation, screenshots are saved
+as PNGs, otherwise as BMPs.
+The screenshot is always in the original screen size.
+.Ar filename
+depends on the
+.Dv use-rom-name
+setting in
+.Xr neopoprc 5 .
+.Pp
+.Ic ESC
+quits the emulator.
+.Sh SEE ALSO
+.Xr neopoprc 5
+.Pp
+.Lk http://www.nih.at/NeoPop-SDL/
+.Sh AUTHORS
+.An neopop_uk
+.Aq neopop_uk@yahoo.co.uk
+wrote the original NeoPop emulator.
+.An Thomas Klausner
+.Aq wiz@danbala.tuwien.ac.at
+ported it to SDL.
+.An Dieter Baron
+.Aq dillo@danbala.tuwien.ac.at
+made lots of improvements.
+.An Marat Fayzullin
+provided the z80 core for sound.
+.An Gilles Vollant
+provided simple portable unzip code.
+.An Maxim Stepin
+and
+.An Max Horn
+provided the HQx scaling routines.
+.Sh BUGS
+Network play does not work.
+.Pp
+Also, please see the
+.Pa DOCDIR/bugs-core.html
+and
+.Pa DOCDIR/TODO
+files.

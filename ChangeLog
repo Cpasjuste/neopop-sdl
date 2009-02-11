@@ -1,0 +1,118 @@
+2004-07-25  Dieter Baron  <dillo@danbala.tuwien.ac.at>
+
+	* configure.ac: bump version to 0.2
+
+	* System_SDL/system_graphics.c (system_graphics_init): set
+	use_yuv_now to 0 if YUV is unusable.
+
+	* System_SDL/system_main.c (system_VBL): update screen if
+	frameskip_count > frame skip also.  fixes screen freeze when frame
+	skip is decremented.
+
+	* System_SDL/system_rc.c (system_rc_read_file): fix osd_colour
+	parsing.
+
+2004-07-25  Thomas Klausner  <wiz@danbala.tuwien.ac.at>
+
+	* System_SDL/NeoPop-SDL.mdoc: Update descriptions for F3/F4 and
+	F12. Fix section number.
+	* System_SDL/neopoprc.mdoc: Fix NeoPop-SDL section number.
+	
+	* System_SDL/system_io.c (system_make_file_name): use ".ext"
+	instead of "ext" for system_make_file_name so it's usable for
+	screenshot saving; adapt callers.
+
+	* System_SDL/system_screenshot.c (get_screenshot_name): un-regress
+	numbered screenshots.
+
+2004-07-24  Dieter Baron  <dillo@danbala.tuwien.ac.at>
+
+	* System_SDL/system_osd.c (osd_init, display_string,
+	string_width), System_SDL/system_main (main), System_SDL/system_rc
+	(system_rc_read_file), System_SDL/font.xpm,
+	System_SDL/NeoPop-SDL.h, System_SDL/neopoprc.mdoc: use
+	proportional font with black border and transparent background.
+	make colour configurable via config file.
+	
+2004-07-22  Dieter Baron  <dillo@danbala.tuwien.ac.at>
+
+	* System_SDL/system_main.c (main): print error message and exit
+	for illegal option arguments.
+	
+	* System_SDL/system_screenshot.c (get_screenshot_name): make
+	directories used configurable, allow use of file name rather than
+	ROM name to derive file to use.
+	
+	* System_SDL/system_io.c (validate_dir): create all non-existing
+	components of directory, not only last.
+
+2004-07-22  Thomas Klausner  <wiz@danbala.tuwien.ac.at>
+
+	* System_SDL/NeoPop-SDL.mdoc: update.
+	* System_SDL/neopoprc.mdoc: add.
+
+2004-07-21  Dieter Baron  <dillo@danbala.tuwien.ac.at>
+
+	* System_SDL/system_graphics.c (system_graphics_update),
+	System_SDL/system_hq_intern.h, System_SDL/system_hq2x.c,
+	System_SDL/system_hq2x.h, System_SDL/system_hq3x.c,
+	System_SDL/system_hq3x.h: add HQ2x/HQ3x scaler (from scummvm).
+
+2004-07-14  Dieter Baron  <dillo@danbala.tuwien.ac.at>
+	
+	* System_SDL/system_screenshot.c (converter): use full range of
+	8bit colour components.
+
+2004-07-10  Dieter Baron  <dillo@danbala.tuwien.ac.at>
+	
+	* System_SDL/font.xpm, System_SDL/system_osd.h,
+	System_SDL/system_main.c (system_VBL): add on-screen display.
+	
+	* System_SDL/system_main.c, System_SDL/system_sound.c: add pause
+	support.
+
+2004-07-09  Dieter Baron  <dillo@danbala.tuwien.ac.at>
+	
+	* System_SDL/system_main.c (system_VBL): rewrite throttling code,
+	when playing sound, sync on sound thread.  *
+	System_SDL/system_sound.c: rewrite to use ring buffer to pass
+	audio chunks betweeen main thread and sound thread.
+	
+	* System_SDL/system_rom.c (rom_load), System_SDL/unzip.c,
+	System_SDL/unzip.h: add support to load ROMs from zip archives.
+
+	* System_SDL/system_io.c (system_state_load,
+	System_SDL/system_state_save, system_io_flash_read,
+	system_io_flash_write, system_make_file_name): make directories
+	used configurable, allow use of ROM name rather than file name to
+	derive file to use.
+	
+	* System_SDL/system_io.c (system_state_load, system_state_save):
+	add support for 10 save slots.
+
+	* System_SDL/system_graphics.c: add yuv overlay support, rewrite
+	pixel format conversion and blocky scaling.
+
+2004-07-07  Dieter Baron  <dillo@danbala.tuwien.ac.at>
+	
+	* Core/sound.c (sample_chip_tone, sample_chip_noise): don't
+	compute voices that are not played.
+
+2004-06-23  Dieter Baron  <dillo@danbala.tuwien.ac.at>
+	
+	* System_SDL/NeoPop-SDL.h, System_SDL/mknames.sh, System_SDL/system_bindings.c,
+	neopoprc.mdoc, System_SDL/system_input.c (system_input_update,
+	emit_key, handle_event, set_mute, set_fullscreen, set_paused):
+	make key bindings configurable.
+
+	* System_SDL/system_rc.c, System_SDL/system_main.c (main): read
+	config file.
+
+	* System_SDL/system_comms.c: implement network play (not working)
+
+	* System_SDL/system_sound.c (system_sound_callback) feed sound
+	card if sound_buffer is non-NULL, not when it's NULL.
+	
+2004-04-28  Dieter Baron  <dillo@danbala.tuwien.ac.at>
+
+	* System_SDL/system_input.c: add joystick support.

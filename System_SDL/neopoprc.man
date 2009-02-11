@@ -1,0 +1,417 @@
+.\" Converted with mdoc2man 0.2
+.\" from NiH: neopoprc.mdoc,v 1.9 2004/07/25 10:58:42 wiz Exp 
+.\" $NiH: neopoprc.man,v 1.7 2004/07/25 10:59:28 wiz Exp $
+.\"
+.\" Copyright (c) 2004 Thomas Klausner and Dieter Baron.
+.\" All rights reserved.
+.\"
+.\" Redistribution and use in source and binary forms, with or without
+.\" modification, are permitted provided that the following conditions
+.\" are met:
+.\" 1. Redistributions of source code must retain the above copyright
+.\"    notice, this list of conditions and the following disclaimer.
+.\" 2. Redistributions in binary form must reproduce the above
+.\"    copyright notice, this list of conditions and the following
+.\"    disclaimer in the documentation and/or other materials provided
+.\"    with the distribution.
+.\" 3. The name of the author may not be used to endorse or promote
+.\"    products derived from this software without specific prior
+.\"    written permission.
+.\"
+.\" THIS SOFTWARE IS PROVIDED BY THOMAS KLAUSNER ``AS IS'' AND ANY
+.\" EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+.\" IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+.\" PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE FOUNDATION OR
+.\" CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+.\" SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+.\" LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+.\" USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+.\" ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+.\" OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+.\" OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+.\" SUCH DAMAGE.
+.TH NEOPOPRC 5 "July 24, 2004" NiH
+.SH "NAME"
+neopoprc \- NeoPop-SDL config file
+.SH "DESCRIPTION"
+The
+.B neopoprc
+file contains the configuration of
+NeoPop-SDL(6).
+.PP
+Lines starting with a hash mark
+.Pq Sq #
+are ignored.
+All keywords and values (except for paths) are case-insensitive.
+Command-line options override config file settings.
+.PP
+The configuration values can be of the following types:
+.RS
+.TP 12
+boolean
+Logical value, can be one of
+``on'',
+``off'',
+``yes'',
+``no'',
+``0'',
+and
+``1''.
+.TP 12
+enum
+A value chosen from a limited set (described next to the
+option).
+.TP 12
+int
+An integer.
+.TP 12
+string
+A string.
+.RE
+.PP
+The following keywords are understood:
+.RS
+.TP 17
+colour
+.Bq enum
+Whether to emulate a colour NeoGeo Pocket.
+The following values are understood:
+.RS
+.TP 14
+\fBgreyscale\fR
+Emulate greyscale device.
+.TP 14
+\fBcolour\fR
+Emulate colour device.
+.TP 14
+\fBauto\fR
+Determine device type to emulate from ROM.
+.RE
+Defaults to
+\fBauto.\fR
+.TP 14
+\fBcomms-mode\fR
+.Bq enum
+Describes the role
+NeoPop-SDL(6)
+should play with regard to network play:
+.RS
+.TP 11
+\fBnone\fR
+Disable network play.
+.TP 11
+\fBserver\fR
+Have client connect to us (start first).
+.TP 11
+\fBclient\fR
+Connect to server.
+.RE
+Defaults to
+\fBnone.\fR
+.TP 11
+\fBcomms-port\fR
+.Bq int
+Which TCP port to use for network play.
+Defaults to 7846.
+.TP 11
+\fBcomms-remote\fR
+.Bq string
+Hostname of the server for network play.
+Has no default.
+.TP 11
+\fBflash-dir\fR
+.Bq string
+Path to the directory where Flash RAM images should be saved.
+Defaults to
+``\fB~/.neopop/flash\fR.''
+If the directory does not exist, it is created automatically.
+.TP 11
+\fBframeskip\fR
+.Bq int (1..7)
+Show only every Nth frame.
+Defaults to 1 (display every frame).
+.TP 11
+\fBfullscreen\fR
+.Bq boolean
+Start in fullscreen mode.
+Defaults to
+\fBoff.\fR
+.TP 11
+\fBlanguage\fR
+.Bq enum
+Which language the hardware should claim it supports.
+Possible values:
+.RS
+.TP 13
+\fBenglish\fR
+.TP 13
+\fBjapanese\fR
+.RE
+Defaults to
+\fBenglish.\fR
+.TP 13
+\fBmagnify\fR
+.Bq int (1..3)
+Magnification factor for the graphics display.
+Defaults to 1 (no magnification).
+Not used in YUV fullscreen mode.
+.TP 13
+\fBmap\fR
+Assign a
+NeoPop-SDL(6)
+event to a key.
+For details, please see the
+BINDINGS
+section below.
+.TP 13
+\fBosd-colour\fR
+.Bq string
+Colour to use for on-screen display, in RGB with either one or two hex
+digits per colour component.
+Default is white (fff).
+.TP 13
+\fBsamplerate\fR
+.Bq int
+Sample rate at which to play audio.
+Defaults to 44100.
+.TP 13
+\fBscreenshot-dir\fR
+.Bq string
+Path to directory in which to store screenshots.
+Defaults to
+``\fB.\fR.''
+If the directory does not exist, it is created automatically.
+.TP 13
+\fBsmooth\fR
+.Bq boolean
+Smooth display when magnified.
+Defaults to
+\fBon.\fR
+Ignored in YUV overlay mode.
+.TP 13
+\fBstate-dir\fR
+.Bq string
+Path to directory in which to store save states.
+Defaults to
+``\fB~/.neopop/state\fR.''
+If the directory does not exist, it is created automatically.
+.TP 13
+\fBsound\fR
+.Bq boolean
+Whether to play sound.
+Defaults to
+\fBon.\fR
+.TP 13
+\fBuse-rom-name\fR
+.Bq boolean
+Whether to derive Flash RAM and save state file names from the
+name in the ROM header rather than the ROM file name.
+Defaults to
+\fBoff.\fR
+.TP 13
+\fByuv\fR
+.Bq enum
+Use a YUV overlay for display.
+On some machines, this allows hardware accelerated scaling.
+Possible values:
+.RS
+.TP 15
+\fBnever\fR
+Don't use a YUV overlay.
+.TP 15
+\fBfullscreen\fR
+Only use a YUV overlay when in fullscreen mode.
+.TP 15
+\fBmagnified\fR
+Use a YUV overlay when in fullscreen mode or when
+the magnification factor is greater than 1.
+.TP 15
+\fBalways\fR
+Always use a YUV overlay.
+.RE
+Defaults to
+\fBmagnified.\fR
+.TP 15
+\fByuv-software\fR
+.Bq boolean
+Use a YUV overlay even if scaling is not hardware accelerated.
+Defaults to
+\fBoff.\fR
+.RE
+.SH "BINDINGS"
+The
+\fBmap\fR
+keyword can be used to set key bindings.
+The following actions can be bound:
+.RS
+.TP 3
+\fBnone\fR
+No action.
+Can be used to remove a key binding.
+.PP
+.TP 3
+\fBjoy up\fR
+.TP 3
+\fBjoy down\fR
+.TP 3
+\fBjoy left\fR
+.TP 3
+\fBjoy right\fR
+.TP 3
+\fBjoy button a\fR
+.TP 3
+\fBjoy button b\fR
+.TP 3
+\fBjoy option\fR
+NeoGeo Pocket Gamepad.
+.PP
+.TP 3
+\fBgui frameskip decrement\fR
+.TP 3
+\fBgui frameskip increment\fR
+Decrease/increase frameskip.
+.PP
+.TP 3
+\fBgui fullscreen off\fR
+.TP 3
+\fBgui fullscreen on\fR
+.TP 3
+\fBgui fullscreen toggle\fR
+Turn fullscreen mode off, on, or toggle it.
+.PP
+.TP 3
+\fBgui magnify 1\fR
+.TP 3
+\fBgui magnify 2\fR
+.TP 3
+\fBgui magnify 3\fR
+Set graphics magnification factor.
+.PP
+.\".It \fBgui menu\fR
+.TP 3
+\fBgui mute off\fR
+.TP 3
+\fBgui mute on\fR
+.TP 3
+\fBgui mute toggle\fR
+Turn sound and music on, off, or toggle it.
+.PP
+.TP 3
+\fBgui pause off\fR
+.TP 3
+\fBgui pause on\fR
+.TP 3
+\fBgui pause toggle\fR
+Pause or unpause game.
+.PP
+.TP 3
+\fBgui quit\fR
+Exit the emulator.
+.PP
+.TP 3
+\fBgui screenshot\fR
+Make a screenshot.
+.PP
+.TP 3
+\fBgui smooth off\fR
+.TP 3
+\fBgui smooth on\fR
+.TP 3
+\fBgui smooth toggle\fR
+Choose whether to use a smoothing filter.
+.PP
+.TP 3
+\fBgui state load\fR
+.TP 3
+\fBgui state save\fR
+Load or save a game state.
+.PP
+.TP 3
+\fBgui state slot decrement\fR
+.TP 3
+\fBgui state slot increment\fR
+Decrease or increase the current game state slot.
+Goes from 0 to 9 and then wraps around to 0 again.
+.RE
+.PP
+The key events use the names from the SDL library;
+see
+SDLKey(3)
+for details.
+Additionally,
+\fBC-\fR
+can be prepended for the control key, and
+\fBA-\fR
+or
+\fBM-\fR
+for the alt key.
+See also the
+EXAMPLES
+section below.
+.PP
+The following joystick events are known:
+.RS
+.TP 5
+\fBjoy \fBm Dv axis Ar n Ar neg|pos\fR\fR
+On joystick
+\fBm\fR
+axis
+\fBn\fR
+the negative or positive direction.
+.TP 5
+\fBjoy \fBm Dv button Ar n\fR\fR
+Button
+\fBn\fR
+on joystick
+\fBm.\fR
+.TP 5
+\fBjoy \fBm Dv hat Ar n Ar up|left|down|right\fR\fR
+On joystick
+\fBm\fR
+hat
+\fBn\fR
+direction up, left, down, or right.
+.RE
+.SH "FILES"
+\fB~/.neopop/neopoprc\fR
+Location of the config file.
+.SH "EXAMPLES"
+To exit the emulator with
+.Sy ALT-F4,
+add the following line to your
+\fB~/.neopop/neopoprc\fR:
+.IP
+map A-F4 = gui quit
+.PP
+.PP
+To simulate a NeoGeo Pocket option key with
+button 5 on the second joystick use:
+.IP
+map joy 2 button 5 = joy option
+.PP
+.PP
+To save all game states and flash saves in subdirectories
+of
+\fB~/.neopop\fR:
+.IP
+flash-dir ~/.neopop/flash
+.PP
+.IP
+state-dir ~/.neopop/states
+.PP
+.SH "SEE ALSO"
+NeoPop-SDL(6)
+.PP
+\fIhttp://www.nih.at/NeoPop-SDL/\fR
+.SH "AUTHORS"
+neopop_uk
+<neopop_uk@yahoo.co.uk>
+wrote the original NeoPop emulator.
+Marat Fayzullin
+provided the z80 core for sound.
+Thomas Klausner
+<wiz@danbala.tuwien.ac.at>
+ported it to SDL.
+Dieter Baron
+<dillo@danbala.tuwien.ac.at>
+made lots of improvements.

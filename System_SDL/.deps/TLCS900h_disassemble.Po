@@ -1,0 +1,2 @@
+TLCS900h_disassemble.o TLCS900h_disassemble.o:  \
+ ../Core/TLCS-900h/TLCS900h_disassemble.c

@@ -1,0 +1,341 @@
+.\" $NiH: neopoprc.mdoc,v 1.9 2004/07/25 10:58:42 wiz Exp $
+.\"
+.\" Copyright (c) 2004 Thomas Klausner and Dieter Baron.
+.\" All rights reserved.
+.\"
+.\" Redistribution and use in source and binary forms, with or without
+.\" modification, are permitted provided that the following conditions
+.\" are met:
+.\" 1. Redistributions of source code must retain the above copyright
+.\"    notice, this list of conditions and the following disclaimer.
+.\" 2. Redistributions in binary form must reproduce the above
+.\"    copyright notice, this list of conditions and the following
+.\"    disclaimer in the documentation and/or other materials provided
+.\"    with the distribution.
+.\" 3. The name of the author may not be used to endorse or promote
+.\"    products derived from this software without specific prior
+.\"    written permission.
+.\"
+.\" THIS SOFTWARE IS PROVIDED BY THOMAS KLAUSNER ``AS IS'' AND ANY
+.\" EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+.\" IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+.\" PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE FOUNDATION OR
+.\" CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+.\" SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+.\" LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+.\" USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+.\" ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+.\" OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+.\" OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+.\" SUCH DAMAGE.
+.Dd July 24, 2004
+.Dt NEOPOPRC 5
+.Os
+.Sh NAME
+.Nm neopoprc
+.Nd NeoPop-SDL config file
+.Sh DESCRIPTION
+The
+.Nm
+file contains the configuration of
+.Xr NeoPop-SDL 6 .
+.Pp
+Lines starting with a hash mark
+.Pq Sq #
+are ignored.
+All keywords and values (except for paths) are case-insensitive.
+Command-line options override config file settings.
+.Pp
+The configuration values can be of the following types:
+.Bl -tag -width XbooleanXX -offset indent -compact
+.It boolean
+Logical value, can be one of
+.Dq on ,
+.Dq off ,
+.Dq yes ,
+.Dq no ,
+.Dq 0 ,
+and
+.Dq 1 .
+.It enum
+A value chosen from a limited set (described next to the
+option).
+.It int
+An integer.
+.It string
+A string.
+.El
+.Pp
+The following keywords are understood:
+.Bl -tag -width XuseXromXnameXX -offset indent
+.It colour
+.Bq enum
+Whether to emulate a colour NeoGeo Pocket.
+The following values are understood:
+.Bl -tag -width XgreyscaleXX -offset indent -compact
+.It Dv greyscale
+Emulate greyscale device.
+.It Dv colour
+Emulate colour device.
+.It Dv auto
+Determine device type to emulate from ROM.
+.El
+Defaults to
+.Dv auto .
+.It Dv comms-mode
+.Bq enum
+Describes the role
+.Xr NeoPop-SDL 6
+should play with regard to network play:
+.Bl -tag -width XserverXX -offset indent -compact
+.It Dv none
+Disable network play.
+.It Dv server
+Have client connect to us (start first).
+.It Dv client
+Connect to server.
+.El
+Defaults to
+.Dv none .
+.It Dv comms-port
+.Bq int
+Which TCP port to use for network play.
+Defaults to 7846.
+.It Dv comms-remote
+.Bq string
+Hostname of the server for network play.
+Has no default.
+.It Dv flash-dir
+.Bq string
+Path to the directory where Flash RAM images should be saved.
+Defaults to
+.Dq Pa ~/.neopop/flash .
+If the directory does not exist, it is created automatically.
+.It Dv frameskip
+.Bq int (1..7)
+Show only every Nth frame.
+Defaults to 1 (display every frame).
+.It Dv fullscreen
+.Bq boolean
+Start in fullscreen mode.
+Defaults to
+.Dv off .
+.It Dv language
+.Bq enum
+Which language the hardware should claim it supports.
+Possible values:
+.Bl -tag -width XjapaneseXX -offset indent -compact
+.It Dv english
+.It Dv japanese
+.El
+Defaults to
+.Dv english .
+.It Dv magnify
+.Bq int (1..3)
+Magnification factor for the graphics display.
+Defaults to 1 (no magnification).
+Not used in YUV fullscreen mode.
+.It Dv map
+Assign a
+.Xr NeoPop-SDL 6
+event to a key.
+For details, please see the
+.Sx BINDINGS
+section below.
+.It Dv osd-colour
+.Bq string
+Colour to use for on-screen display, in RGB with either one or two hex
+digits per colour component.
+Default is white (fff).
+.It Dv samplerate
+.Bq int
+Sample rate at which to play audio.
+Defaults to 44100.
+.It Dv screenshot-dir
+.Bq string
+Path to directory in which to store screenshots.
+Defaults to
+.Dq Pa \&. .
+If the directory does not exist, it is created automatically.
+.It Dv smooth
+.Bq boolean
+Smooth display when magnified.
+Defaults to
+.Dv on .
+Ignored in YUV overlay mode.
+.It Dv state-dir
+.Bq string
+Path to directory in which to store save states.
+Defaults to
+.Dq Pa ~/.neopop/state .
+If the directory does not exist, it is created automatically.
+.It Dv sound
+.Bq boolean
+Whether to play sound.
+Defaults to
+.Dv on .
+.It Dv use-rom-name
+.Bq boolean
+Whether to derive Flash RAM and save state file names from the
+name in the ROM header rather than the ROM file name.
+Defaults to
+.Dv off .
+.It Dv yuv
+.Bq enum
+Use a YUV overlay for display.
+On some machines, this allows hardware accelerated scaling.
+Possible values:
+.Bl -tag -width XfullscreenXX -offset indent -compact
+.It Dv never
+Don't use a YUV overlay.
+.It Dv fullscreen
+Only use a YUV overlay when in fullscreen mode.
+.It Dv magnified
+Use a YUV overlay when in fullscreen mode or when
+the magnification factor is greater than 1.
+.It Dv always
+Always use a YUV overlay.
+.El
+Defaults to
+.Dv magnified .
+.It Dv yuv-software
+.Bq boolean
+Use a YUV overlay even if scaling is not hardware accelerated.
+Defaults to
+.Dv off .
+.El
+.Sh BINDINGS
+The
+.Dv map
+keyword can be used to set key bindings.
+The following actions can be bound:
+.Bl -tag -width n -compact -offset indent
+.It Dv none
+No action.
+Can be used to remove a key binding.
+.Pp
+.It Dv joy up
+.It Dv joy down
+.It Dv joy left
+.It Dv joy right
+.It Dv joy button a
+.It Dv joy button b
+.It Dv joy option
+NeoGeo Pocket Gamepad.
+.Pp
+.It Dv gui frameskip decrement
+.It Dv gui frameskip increment
+Decrease/increase frameskip.
+.Pp
+.It Dv gui fullscreen off
+.It Dv gui fullscreen on
+.It Dv gui fullscreen toggle
+Turn fullscreen mode off, on, or toggle it.
+.Pp
+.It Dv gui magnify 1
+.It Dv gui magnify 2
+.It Dv gui magnify 3
+Set graphics magnification factor.
+.Pp
+.\" .It Dv gui menu
+.It Dv gui mute off
+.It Dv gui mute on
+.It Dv gui mute toggle
+Turn sound and music on, off, or toggle it.
+.Pp
+.It Dv gui pause off
+.It Dv gui pause on
+.It Dv gui pause toggle
+Pause or unpause game.
+.Pp
+.It Dv gui quit
+Exit the emulator.
+.Pp
+.It Dv gui screenshot
+Make a screenshot.
+.Pp
+.It Dv gui smooth off
+.It Dv gui smooth on
+.It Dv gui smooth toggle
+Choose whether to use a smoothing filter.
+.Pp
+.It Dv gui state load
+.It Dv gui state save
+Load or save a game state.
+.Pp
+.It Dv gui state slot decrement
+.It Dv gui state slot increment
+Decrease or increase the current game state slot.
+Goes from 0 to 9 and then wraps around to 0 again.
+.El
+.Pp
+The key events use the names from the SDL library;
+see
+.Xr SDLKey 3
+for details.
+Additionally,
+.Dv C-
+can be prepended for the control key, and
+.Dv A-
+or
+.Dv M-
+for the alt key.
+See also the
+.Sx EXAMPLES
+section below.
+.Pp
+The following joystick events are known:
+.Bl -tag -width XXX -compact -offset indent
+.It Dv joy Ar m Dv axis Ar n Ar neg|pos
+On joystick
+.Ar m
+axis
+.Ar n
+the negative or positive direction.
+.It Dv joy Ar m Dv button Ar n
+Button
+.Ar n
+on joystick
+.Ar m .
+.It Dv joy Ar m Dv hat Ar n Ar up|left|down|right
+On joystick
+.Ar m
+hat
+.Ar n
+direction up, left, down, or right.
+.El
+.Sh FILES
+.Pa ~/.neopop/neopoprc
+Location of the config file.
+.Sh EXAMPLES
+To exit the emulator with
+.Sy ALT-F4 ,
+add the following line to your
+.Pa ~/.neopop/neopoprc :
+.Dl map A-F4 = gui quit
+.Pp
+To simulate a NeoGeo Pocket option key with
+button 5 on the second joystick use:
+.Dl map joy 2 button 5 = joy option
+.Pp
+To save all game states and flash saves in subdirectories
+of
+.Pa ~/.neopop :
+.Dl flash-dir ~/.neopop/flash
+.Dl state-dir ~/.neopop/states
+.Sh SEE ALSO
+.Xr NeoPop-SDL 6
+.Pp
+.Lk http://www.nih.at/NeoPop-SDL/
+.Sh AUTHORS
+.An neopop_uk
+.Aq neopop_uk@yahoo.co.uk
+wrote the original NeoPop emulator.
+.An Marat Fayzullin
+provided the z80 core for sound.
+.An Thomas Klausner
+.Aq wiz@danbala.tuwien.ac.at
+ported it to SDL.
+.An Dieter Baron
+.Aq dillo@danbala.tuwien.ac.at
+made lots of improvements.

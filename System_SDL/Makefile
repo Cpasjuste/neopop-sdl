@@ -146,7 +146,7 @@ CC = arm-none-linux-gnueabi-gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2 -DLSB_FIRST
 CPP = arm-none-linux-gnueabi-gcc -E
-CPPFLAGS =  -I/usr/local/pandora/arm-2007q3/usr/include -mcpu=cortex-a8 -DPANDORA
+CPPFLAGS =  -I/usr/local/pandora/arm-2007q3/usr/include -march=armv7-a -mcpu=cortex-a8 -mtune=cortex-a8 -mfloat-abi=softfp -mfpu=neon -ftree-vectorize -ffast-math -fno-omit-frame-pointer -DPANDORA
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
@@ -161,9 +161,9 @@ INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = ${SHELL} $(install_sh) -c -s
 LDFLAGS =  -L/usr/local/pandora/arm-2007q3/usr/lib
-LIBOBJS =  ${LIBOBJDIR}malloc$U.o ${LIBOBJDIR}memcmp$U.o ${LIBOBJDIR}lstat$U.o ${LIBOBJDIR}stat$U.o
+LIBOBJS =  ${LIBOBJDIR}memcmp$U.o ${LIBOBJDIR}lstat$U.o ${LIBOBJDIR}stat$U.o
 LIBS = -lpng  -lz
-LTLIBOBJS =  ${LIBOBJDIR}malloc$U.lo ${LIBOBJDIR}memcmp$U.lo ${LIBOBJDIR}lstat$U.lo ${LIBOBJDIR}stat$U.lo
+LTLIBOBJS =  ${LIBOBJDIR}memcmp$U.lo ${LIBOBJDIR}lstat$U.lo ${LIBOBJDIR}stat$U.lo
 MAKEINFO = ${SHELL} /home/cpasjuste/pandora/NeoPop-SDL-0.2/missing --run makeinfo
 MANFMT = man
 OBJEXT = o

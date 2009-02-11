@@ -62,7 +62,11 @@ system_sound_init(void)
 {
     SDL_AudioSpec desired;
 
+#ifndef PANDORA
     spf = samplerate/NGP_FPS;
+#else
+	spf = 512;
+#endif
     bpf = spf*2;
 
     rsem = SDL_CreateSemaphore(0);

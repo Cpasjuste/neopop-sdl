@@ -566,7 +566,7 @@ s,@am__leading_dot@,|#_!!_#|.,g
 s,@CC@,|#_!!_#|arm-none-linux-gnueabi-gcc,g
 s,@CFLAGS@,|#_!!_#|-g -O2 -DLSB_FIRST,g
 s,@LDFLAGS@,|#_!!_#| -L/usr/local/pandora/arm-2007q3/usr/lib,g
-s,@CPPFLAGS@,|#_!!_#| -I/usr/local/pandora/arm-2007q3/usr/include -mcpu=cortex-a8 -DPANDORA,g
+s,@CPPFLAGS@,|#_!!_#| -I/usr/local/pandora/arm-2007q3/usr/include -march=armv7-a -mcpu=cortex-a8 -mtune=cortex-a8 -mfloat-abi=softfp -mfpu=neon -ftree-vectorize -ffast-math -fno-omit-frame-pointer -DPANDORA,g
 s,@ac_ct_CC@,|#_!!_#|,g
 s,@EXEEXT@,|#_!!_#|,g
 s,@OBJEXT@,|#_!!_#|o,g
@@ -582,13 +582,13 @@ s,@am__fastdepCC_FALSE@,|#_!!_#|#,g
 s,@CPP@,|#_!!_#|arm-none-linux-gnueabi-gcc -E,g
 s,@GREP@,|#_!!_#|/bin/grep,g
 s,@EGREP@,|#_!!_#|/bin/grep -E,g
-s,@LIBOBJS@,|#_!!_#| ${LIBOBJDIR}malloc$U.o ${LIBOBJDIR}memcmp$U.o ${LIBOBJDIR}lstat$U.o ${LIBOBJDIR}stat$U.o,g
+s,@LIBOBJS@,|#_!!_#| ${LIBOBJDIR}memcmp$U.o ${LIBOBJDIR}lstat$U.o ${LIBOBJDIR}stat$U.o,g
 s,@SDL_CONFIG@,|#_!!_#|/usr/local/pandora/arm-2007q3/usr/bin/sdl-config,g
 s,@SDL_CFLAGS@,|#_!!_#|-I/usr/local/pandora/arm-2007q3/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT,g
 s,@SDL_LIBS@,|#_!!_#|-L/usr/local/pandora/arm-2007q3/usr/lib -Wl\,-rpath\,/usr/local/pandora/arm-2007q3/usr/lib -lSDL -lpthread,g
 s,@MANFMT@,|#_!!_#|man,g
 s,@DOCDIR@,|#_!!_#|${datarootdir}/doc/NeoPop-SDL,g
-s,@LTLIBOBJS@,|#_!!_#| ${LIBOBJDIR}malloc$U.lo ${LIBOBJDIR}memcmp$U.lo ${LIBOBJDIR}lstat$U.lo ${LIBOBJDIR}stat$U.lo,g
+s,@LTLIBOBJS@,|#_!!_#| ${LIBOBJDIR}memcmp$U.lo ${LIBOBJDIR}lstat$U.lo ${LIBOBJDIR}stat$U.lo,g
 :end
 s/|#_!!_#|//g
 CEOF
@@ -862,9 +862,6 @@ s,^\([	 #]*\)[^	 ]*\([	 ]*HAVE_STDLIB_H\)[	 (].*,\1define\2 1 ,
 s,^\([	 #]*\)[^	 ]*\([	 ]*HAVE_STRING_H\)[	 (].*,\1define\2 1 ,
 s,^\([	 #]*\)[^	 ]*\([	 ]*HAVE_SYS_TIME_H\)[	 (].*,\1define\2 1 ,
 s,^\([	 #]*\)[^	 ]*\([	 ]*HAVE_UNISTD_H\)[	 (].*,\1define\2 1 ,
-s,^\([	 #]*\)[^	 ]*\([	 ]*HAVE_STDLIB_H\)[	 (].*,\1define\2 1 ,
-s,^\([	 #]*\)[^	 ]*\([	 ]*HAVE_MALLOC\)[	 (].*,\1define\2 0 ,
-s,^\([	 #]*\)[^	 ]*\([	 ]*malloc\)[	 (].*,\1define\2 rpl_malloc ,
 s,^\([	 #]*\)[^	 ]*\([	 ]*HAVE_STAT_EMPTY_STRING_BUG\)[	 (].*,\1define\2 1 ,
 s,^\([	 #]*\)[^	 ]*\([	 ]*HAVE_VPRINTF\)[	 (].*,\1define\2 1 ,
 s,^\([	 #]*\)[^	 ]*\([	 ]*HAVE_ATEXIT\)[	 (].*,\1define\2 1 ,

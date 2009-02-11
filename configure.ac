@@ -22,7 +22,6 @@ AC_HEADER_STDC
 AC_CHECK_HEADERS([stdlib.h string.h sys/time.h unistd.h])
 
 # Checks for library functions.
-AC_FUNC_MALLOC
 AC_FUNC_MEMCMP
 AC_FUNC_STAT
 AC_FUNC_VPRINTF
@@ -42,7 +41,7 @@ AC_ARG_ENABLE(pandora,
 
 if test $pandora = "yes" ;
 then
-	CPPFLAGS="$CPPFLAGS -I$PNDSDK/usr/include -mcpu=cortex-a8 -DPANDORA"
+	CPPFLAGS="$CPPFLAGS -I$PNDSDK/usr/include -march=armv7-a -mcpu=cortex-a8 -mtune=cortex-a8 -mfloat-abi=softfp -mfpu=neon -ftree-vectorize -ffast-math -fno-omit-frame-pointer -DPANDORA"
 	LDFLAGS="$LDFLAGS -L$PNDSDK/usr/lib"
 fi
 

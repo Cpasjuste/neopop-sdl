@@ -39,10 +39,12 @@ AC_ARG_ENABLE(pandora,
  [ pandora=yes
  ])
 
-if test $pandora = "yes" ;
+if test $pandora = "yes"
 then
-	CPPFLAGS="$CPPFLAGS -I$PNDSDK/usr/include -march=armv7-a -mcpu=cortex-a8 -mtune=cortex-a8 -mfloat-abi=softfp -mfpu=neon -ftree-vectorize -ffast-math -fno-omit-frame-pointer -DPANDORA"
-	LDFLAGS="$LDFLAGS -L$PNDSDK/usr/lib"
+	CPPFLAGS="$CPPFLAGS -march=armv7-a -mcpu=cortex-a8 -mtune=cortex-a8 -mfloat-abi=softfp -mfpu=neon -ftree-vectorize -ffast-math -fno-omit-frame-pointer -DPANDORA"
+	LDFLAGS="-static"
+	LIBS="-lpng -lts -ldl -lz -lm $LIBS"
+	AC_DEFINE(HAVE_LIBPNG)
 fi
 
 
@@ -51,6 +53,9 @@ then
     CPPFLAGS="$CPPFLAGS -I$with_png/include"
     LDFLAGS="$LDFLAGS -L$with_png/lib -Wl,-R$with_png/lib"
 fi
+
+if test $pandora != "yes"
+then
 AC_CHECK_HEADER(png.h,
     AC_CHECK_LIB(png, png_create_read_struct, ,
         [AC_CHECK_LIB(png, png_destroy_read_struct,
@@ -58,6 +63,7 @@ AC_CHECK_HEADER(png.h,
 	    [AC_MSG_WARN([PNG library not found -- using BMP screenshots])],
 	    -lm)]),
     [AC_MSG_WARN([PNG library not found -- using BMP screenshots])])
+fi
 
 AC_CHECK_LIB([z], [main],
 	[AC_DEFINE([HAVE_LIBZ], [1],

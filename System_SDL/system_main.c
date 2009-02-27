@@ -198,9 +198,9 @@ main(int argc, char *argv[])
     use_yuv = DEFAULT_YUV;
     use_software_yuv = 0;
     /* directories for save files */
-    flash_dir = strdup("~/.neopop/flash");
+    flash_dir = strdup("./flash");
     screenshot_dir = strdup(".");
-    state_dir = strdup("~/.neopop/state");
+    state_dir = strdup("./state");
     /* use rom name rather than file name for save files */
     use_rom_name = FALSE;
     /* state save slot */

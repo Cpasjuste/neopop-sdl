@@ -250,7 +250,7 @@ system_rc_read(void)
 
     if ((home=getenv("HOME")) == NULL)
 	return;
-    snprintf(b, sizeof(b), "%s/.neopop/neopoprc", home);
+    snprintf(b, sizeof(b), "./neopoprc");
     system_rc_read_file(b);
 }
 

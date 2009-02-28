@@ -1,22 +1,22 @@
 Z80.o Z80.o: ../Core/z80/Z80.c ../Core/z80/Z80.h ../Core/z80/Tables.h \
-  /usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/stdio.h \
-  /usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/features.h \
-  /usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/predefs.h \
-  /usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/cdefs.h \
-  /usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/wordsize.h \
-  /usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/gnu/stubs.h \
-  /usr/local/pandora/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.1/include/stddef.h \
-  /usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/types.h \
-  /usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/typesizes.h \
-  /usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/libio.h \
-  /usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/_G_config.h \
-  /usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/wchar.h \
-  /usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/wchar.h \
-  /usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/gconv.h \
-  /usr/local/pandora/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.1/include/stdarg.h \
-  /usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/stdio_lim.h \
-  /usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/sys_errlist.h \
-  /usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/stdio.h \
+  /usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/stdio.h \
+  /usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/features.h \
+  /usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/predefs.h \
+  /usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/cdefs.h \
+  /usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/wordsize.h \
+  /usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/gnu/stubs.h \
+  /usr/local/pandora/arm-2007q3/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.1/include/stddef.h \
+  /usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/types.h \
+  /usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/typesizes.h \
+  /usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/libio.h \
+  /usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/_G_config.h \
+  /usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/wchar.h \
+  /usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/wchar.h \
+  /usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/gconv.h \
+  /usr/local/pandora/arm-2007q3/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.1/include/stdarg.h \
+  /usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/stdio_lim.h \
+  /usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/sys_errlist.h \
+  /usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/stdio.h \
   ../Core/z80/CodesCB.h ../Core/z80/CodesXCB.h ../Core/z80/CodesED.h \
   ../Core/z80/CodesXX.h ../Core/z80/Codes.h
 
@@ -24,41 +24,41 @@ Z80.o Z80.o: ../Core/z80/Z80.c ../Core/z80/Z80.h ../Core/z80/Tables.h \
 
 ../Core/z80/Tables.h:
 
-/usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/stdio.h:
+/usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/stdio.h:
 
-/usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/features.h:
+/usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/features.h:
 
-/usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/predefs.h:
+/usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/predefs.h:
 
-/usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/cdefs.h:
+/usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/sys/cdefs.h:
 
-/usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/wordsize.h:
+/usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/wordsize.h:
 
-/usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/gnu/stubs.h:
+/usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/gnu/stubs.h:
 
-/usr/local/pandora/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.1/include/stddef.h:
+/usr/local/pandora/arm-2007q3/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.1/include/stddef.h:
 
-/usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/types.h:
+/usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/types.h:
 
-/usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/typesizes.h:
+/usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/typesizes.h:
 
-/usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/libio.h:
+/usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/libio.h:
 
-/usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/_G_config.h:
+/usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/_G_config.h:
 
-/usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/wchar.h:
+/usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/wchar.h:
 
-/usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/wchar.h:
+/usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/wchar.h:
 
-/usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/gconv.h:
+/usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/gconv.h:
 
-/usr/local/pandora/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.1/include/stdarg.h:
+/usr/local/pandora/arm-2007q3/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.1/include/stdarg.h:
 
-/usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/stdio_lim.h:
+/usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/stdio_lim.h:
 
-/usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/sys_errlist.h:
+/usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/sys_errlist.h:
 
-/usr/local/pandora/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/stdio.h:
+/usr/local/pandora/arm-2007q3/bin/../arm-none-linux-gnueabi/libc/usr/include/bits/stdio.h:
 
 ../Core/z80/CodesCB.h:
 

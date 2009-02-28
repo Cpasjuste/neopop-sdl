@@ -1,0 +1,9 @@
+flash-dir ./flash
+state-dir ./state
+screenshot-dir ./scrshot
+frameskip 1
+magnify 3
+smooth on
+samplerate 44100
+sound on
+

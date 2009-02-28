@@ -49,9 +49,10 @@ usage(int exitcode)
 {
     printversion();
     printf("NeoGeo Pocket emulator\n\n"
-	   "Usage: %s [-acefghjMmSsv] [-C mode] [-P port] [-R remove] [game]\n"
+	   "Usage: %s [-abcefghjMmSsv] [-C mode] [-P port] [-R remove] [game]\n"
 	   "\t-C mode\t\tspecify comms mode (none, server, client; default: none)\n"
 	   "\t-a mode\t\tspecify scale factor (1, 2, 3)\n"
+	   "\t-b mode\t\tspecify sound freq (11025, 22050, 44100)\n"
 	   "\t-c\t\tstart in colour mode (default: automatic)\n"
 	   "\t-e\t\temulate English language NeoGeo Pocket (default)\n"
 	   "\t-f count\tframeskip: show one in `count' frames (default: 1)\n"
@@ -230,6 +231,12 @@ main(int argc, char *argv[])
 		}
 		graphics_mag_req = i;	
 		break;
+	
+	case 'b':
+		i = atoi(optarg);
+		if( i == 11025 || i == 22050 || i == 44100 )
+			samplerate = i;	
+		break;		
 
 	case 'C':
 	    i = system_rc_parse_comms_mode(optarg);

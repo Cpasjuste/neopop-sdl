@@ -220,7 +220,7 @@ main(int argc, char *argv[])
     system_bindings_init();
     system_rc_read();
 
-    while ((ch=getopt(argc, argv, "a:C:cef:ghjl:MmP:R:SsVy:")) != -1) {
+    while ((ch=getopt(argc, argv, "ab:C:cef:ghjl:MmP:R:SsVy:")) != -1) {
 	switch (ch) {
 	case 'a':
 		i = atoi(optarg);

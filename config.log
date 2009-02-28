@@ -277,7 +277,7 @@ configure:5040: $? = 0
 configure:5058: result: yes
 configure:5065: checking for _doprnt
 configure:5121: arm-none-linux-gnueabi-gcc -o conftest -g -O2 -DLSB_FIRST   conftest.c  >&5
-/tmp/ccwDVJTQ.o: In function `main':
+/tmp/ccoASQW4.o: In function `main':
 /home/cpasjuste/pandora/neopop-sdl/conftest.c:61: undefined reference to `_doprnt'
 collect2: ld returned 1 exit status
 configure:5127: $? = 1

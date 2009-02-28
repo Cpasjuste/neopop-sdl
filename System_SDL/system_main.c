@@ -220,24 +220,8 @@ main(int argc, char *argv[])
     system_bindings_init();
     system_rc_read();
 
-    while ((ch=getopt(argc, argv, "ab:C:cef:ghjl:MmP:R:SsVy:")) != -1) {
-	switch (ch) {
-	case 'a':
-		i = atoi(optarg);
-		if (i <1 || i > 3) {
-			fprintf(stderr, "%s: illegal sizex `%s'\n",
-				prg, optarg);
-			exit(1);
-		}
-		graphics_mag_req = i;	
-		break;
-	
-	case 'b':
-		i = atoi(optarg);
-		if( i == 11025 || i == 22050 || i == 44100 )
-			samplerate = i;	
-		break;		
-
+    while ((ch=getopt(argc, argv, "C:a:b:cef:ghjl:MmP:R:SsVy:")) != -1) {
+	switch (ch) {	
 	case 'C':
 	    i = system_rc_parse_comms_mode(optarg);
 	    if (i == -1) {
@@ -248,6 +232,29 @@ main(int argc, char *argv[])
 	    else
 		comms_mode = i;
 	    break;
+	case 'a':
+		i = atoi(optarg);
+		if (i <1 || i > 3) {
+			fprintf(stderr, "%s: illegal sizex `%s'\n",
+				prg, optarg);
+			exit(1);
+		}
+		else 
+			graphics_mag_req = i;	
+		break;
+	case 'b':
+		i = atoi(optarg);
+		if( i == 11025 || i == 22050 || i == 44100 )
+		{
+			samplerate = i;
+		}
+		else 
+		{
+			fprintf(stderr, "%s: illegal samplerate `%s'\n",
+					prg, optarg);
+				exit(1);
+		}
+		break;	
 	case 'c':
 	    system_colour = COLOURMODE_COLOUR;
 	    break;

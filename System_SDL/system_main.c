@@ -220,7 +220,7 @@ main(int argc, char *argv[])
     system_bindings_init();
     system_rc_read();
 
-    while ((ch=getopt(argc, argv, "C:a:b:cef:ghjl:MmP:R:SsVy:")) != -1) {
+    while ((ch=getopt(argc, argv, "C:cef:ghjl:MmP:R:SsVy:z:Z:")) != -1) {
 	switch (ch) {	
 	case 'C':
 	    i = system_rc_parse_comms_mode(optarg);
@@ -231,30 +231,7 @@ main(int argc, char *argv[])
 	    }
 	    else
 		comms_mode = i;
-	    break;
-	case 'a':
-		i = atoi(optarg);
-		if (i <1 || i > 3) {
-			fprintf(stderr, "%s: illegal sizex `%s'\n",
-				prg, optarg);
-			exit(1);
-		}
-		else 
-			graphics_mag_req = i;	
-		break;
-	case 'b':
-		i = atoi(optarg);
-		if( i == 11025 || i == 22050 || i == 44100 )
-		{
-			samplerate = i;
-		}
-		else 
-		{
-			fprintf(stderr, "%s: illegal samplerate `%s'\n",
-					prg, optarg);
-				exit(1);
-		}
-		break;	
+	    break;	
 	case 'c':
 	    system_colour = COLOURMODE_COLOUR;
 	    break;
@@ -321,6 +298,23 @@ main(int argc, char *argv[])
 	    else
 		use_yuv = i;
 	    break;
+	case 'z':
+		i = atoi(optarg);
+		if (i <1 || i > 3) {
+			fprintf(stderr, "%s: illegal scale factor `%s'\n",
+				prg, optarg);
+			exit(1);
+		}
+		else 
+			graphics_mag_req = i;	
+		break;
+	case 'Z':
+		i = atoi(optarg);
+		if( i == 11025 || i == 22050 || i == 44100 )
+		{
+			samplerate = i;
+		}
+		break;
 	default:
 	    usage(1);
 	}

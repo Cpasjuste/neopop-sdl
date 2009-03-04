@@ -37,7 +37,7 @@
 	<build>2</build>
 </version>
 
-<exec>pneopop</exec>
+<exec>pgui.sh</exec>
 
 <category>
 	<main>emulators</main>

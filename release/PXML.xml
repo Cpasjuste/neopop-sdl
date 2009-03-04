@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<PXML>
+<title>
+	<en>NeoPop</en>
+	<de>Program Title in German Language</de>
+	<fr>Program Title in French Language</fr>
+	<it>Program Title in Italian Language</it>
+</title>
+
+<unique_id>pneopop</unique_id>
+
+<standalone>Yes</standalone>
+
+<icon>pneopop.png</icon>
+
+<description>
+	<en>NeoPop is a NeoGeo Pocket Emulator ...</en>
+	<de>The German Description</de>
+	<it>The Italian Description</it>
+	<fr>The French Description</fr>
+</description>
+
+<previewpic>
+	<pic1>pic1.png</pic1>
+	<pic2>pic2.png</pic2>
+</previewpic>
+
+<author>
+	<name>Cpasjuste</name>
+	<website>http://mydedibox.fr/</website>
+</author>
+
+<version>
+	<major>1</major>
+	<minor>1</minor>
+	<release>1</release>
+	<build>2</build>
+</version>
+
+<exec>pneopop</exec>
+
+<category>
+	<main>emulators</main>
+	<subcategory1>Subcategory 1</subcategory1>
+	<subcategory2>Subcategory 2</subcategory2>
+</category>
+
+<altcategory>
+	<main>Alternate category</main>
+	<subcategory1>Alternate Subcategory 1</subcategory1>
+	<subcategory2>Alternate Subcategory 2</subcategory2>
+</altcategory>
+
+<osversion>
+	<major>1</major>
+	<minor>1</minor>
+	<release>1</release>
+	<build>2</build>
+</osversion>
+
+<associationitem1>
+	<name>View this Picture</name>
+	<filetype>jpg,bmp,gif</filetype>
+	<parameter>­view</parameter>
+</associationitem1>
+
+<associationitem2>
+	<name>Convert this Picture</name>
+	<filetype>jpg,bmp,gif</filetype>
+	<parameter>­convert</parameter>
+</associationitem2>
+
+<associationitem3>
+	<name>Watch This Movie</name>
+	<filetype>mpg,avi,wmv</filetype>
+	<parameter>­convert</parameter>
+</associationitem3>
+
+<clockspeed>600</clockspeed>
+
+<background>Yes</background>
+
+<startdir>../differentdir</startdir>
+
+</PXML>

@@ -140,6 +140,7 @@ system_input_update(void)
 	    
         case SDL_JOYBUTTONUP:
         case SDL_JOYBUTTONDOWN:
+		if(evt.jbutton.button == 4) { do_exit = 1; break; }
 	    if (evt.jbutton.which >= NPKS_NJOY
 		|| evt.jbutton.button >= NPKS_JOY_NBUTTON)
 		break;

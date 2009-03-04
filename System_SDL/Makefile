@@ -97,17 +97,17 @@ DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 
 # GNU make support
 VPATH = $(top_srcdir)/Core:$(top_srcdir)/Core/TLCS-900h:$(top_srcdir)/Core/z80:$(top_srcdir)/System_SDL
-ACLOCAL = ${SHELL} /home/cpasjuste/pandora/neopop-sdl/missing --run aclocal-1.10
-AMTAR = ${SHELL} /home/cpasjuste/pandora/neopop-sdl/missing --run tar
-AUTOCONF = ${SHELL} /home/cpasjuste/pandora/neopop-sdl/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/cpasjuste/pandora/neopop-sdl/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/cpasjuste/pandora/neopop-sdl/missing --run automake-1.10
-AWK = mawk
+ACLOCAL = ${SHELL} /home/cpasjuste/pandora/wip/neopop-sdl/missing --run aclocal-1.10
+AMTAR = ${SHELL} /home/cpasjuste/pandora/wip/neopop-sdl/missing --run tar
+AUTOCONF = ${SHELL} /home/cpasjuste/pandora/wip/neopop-sdl/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/cpasjuste/pandora/wip/neopop-sdl/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/cpasjuste/pandora/wip/neopop-sdl/missing --run automake-1.10
+AWK = gawk
 CC = arm-none-linux-gnueabi-gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2 -DLSB_FIRST
 CPP = arm-none-linux-gnueabi-gcc -E
-CPPFLAGS =  -march=armv7-a -mcpu=cortex-a8 -mtune=cortex-a8 -mfloat-abi=softfp -mfpu=neon -ftree-vectorize -ffast-math -fno-omit-frame-pointer -DPANDORA -I/usr/local/pandora/arm-2007q3/usr/include
+CPPFLAGS =  -march=armv7-a -mcpu=cortex-a8 -mtune=cortex-a8 -mfloat-abi=softfp -mfpu=neon -ftree-vectorize -ffast-math -fno-omit-frame-pointer -DPANDORA -I/usr/local/pandora/usr/include
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
@@ -123,11 +123,11 @@ INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
-LDFLAGS = -static -L/usr/local/pandora/arm-2007q3/usr/lib -Wl,-R/usr/local/pandora/arm-2007q3/usr/lib
+LDFLAGS = -static -L/usr/local/pandora/usr/lib -Wl,-R/usr/local/pandora/usr/lib
 LIBOBJS =  ${LIBOBJDIR}memcmp$U.o ${LIBOBJDIR}lstat$U.o ${LIBOBJDIR}stat$U.o
 LIBS = -lpng -lts -ldl -lz -lm  -lz
 LTLIBOBJS =  ${LIBOBJDIR}memcmp$U.lo ${LIBOBJDIR}lstat$U.lo ${LIBOBJDIR}stat$U.lo
-MAKEINFO = ${SHELL} /home/cpasjuste/pandora/neopop-sdl/missing --run makeinfo
+MAKEINFO = ${SHELL} /home/cpasjuste/pandora/wip/neopop-sdl/missing --run makeinfo
 MANFMT = man
 MKDIR_P = /bin/mkdir -p
 OBJEXT = o
@@ -138,17 +138,17 @@ PACKAGE_STRING = NeoPop-SDL 0.2
 PACKAGE_TARNAME = NeoPop-SDL
 PACKAGE_VERSION = 0.2
 PATH_SEPARATOR = :
-SDL_CFLAGS = -I/usr/local/pandora/arm-2007q3/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT
-SDL_CONFIG = /usr/local/pandora/arm-2007q3/usr/bin/sdl-config
-SDL_LIBS = -L/usr/local/pandora/arm-2007q3/usr/lib -Wl,-rpath,/usr/local/pandora/arm-2007q3/usr/lib -lSDL -lpthread
+SDL_CFLAGS = -I/usr/local/pandora/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT
+SDL_CONFIG = /usr/local/pandora/usr/bin/sdl-config
+SDL_LIBS = -L/usr/local/pandora/usr/lib -Wl,-rpath,/usr/local/pandora/usr/lib -lSDL -lpthread
 SET_MAKE = 
-SHELL = /bin/bash
+SHELL = /bin/sh
 STRIP = arm-none-linux-gnueabi-strip
 VERSION = 0.2
-abs_builddir = /home/cpasjuste/pandora/neopop-sdl/System_SDL
-abs_srcdir = /home/cpasjuste/pandora/neopop-sdl/System_SDL
-abs_top_builddir = /home/cpasjuste/pandora/neopop-sdl
-abs_top_srcdir = /home/cpasjuste/pandora/neopop-sdl
+abs_builddir = /home/cpasjuste/pandora/wip/neopop-sdl/System_SDL
+abs_srcdir = /home/cpasjuste/pandora/wip/neopop-sdl/System_SDL
+abs_top_builddir = /home/cpasjuste/pandora/wip/neopop-sdl
+abs_top_srcdir = /home/cpasjuste/pandora/wip/neopop-sdl
 ac_ct_CC = 
 am__include = include
 am__leading_dot = .
@@ -175,7 +175,7 @@ host_vendor = none
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = $(SHELL) /home/cpasjuste/pandora/neopop-sdl/install-sh
+install_sh = $(SHELL) /home/cpasjuste/pandora/wip/neopop-sdl/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -201,8 +201,8 @@ top_srcdir = ..
 AM_CPPFLAGS = -I$(top_srcdir)/Core/z80  -I$(top_srcdir)/Core/TLCS-900h \
 		-I$(top_srcdir)/Core
 
-AM_CFLAGS = -D__cdecl= -I/usr/local/pandora/arm-2007q3/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -Wall
-LDADD = -L/usr/local/pandora/arm-2007q3/usr/lib -Wl,-rpath,/usr/local/pandora/arm-2007q3/usr/lib -lSDL -lpthread
+AM_CFLAGS = -D__cdecl= -I/usr/local/pandora/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -Wall
+LDADD = -L/usr/local/pandora/usr/lib -Wl,-rpath,/usr/local/pandora/usr/lib -lSDL -lpthread
 
 # BSD make support
 .PATH = ${VPATH}

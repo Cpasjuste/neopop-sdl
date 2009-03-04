@@ -50,9 +50,9 @@ usage(int exitcode)
     printversion();
     printf("NeoGeo Pocket emulator\n\n"
 	   "Usage: %s [-abcefghjMmSsv] [-C mode] [-P port] [-R remove] [game]\n"
+	   "\t-z mode\t\tspecify scale factor (1, 2, 3)\n"
+	   "\t-Z mode\t\tspecify sound freq (11025, 22050, 44100)\n"
 	   "\t-C mode\t\tspecify comms mode (none, server, client; default: none)\n"
-	   "\t-a mode\t\tspecify scale factor (1, 2, 3)\n"
-	   "\t-b mode\t\tspecify sound freq (11025, 22050, 44100)\n"
 	   "\t-c\t\tstart in colour mode (default: automatic)\n"
 	   "\t-e\t\temulate English language NeoGeo Pocket (default)\n"
 	   "\t-f count\tframeskip: show one in `count' frames (default: 1)\n"

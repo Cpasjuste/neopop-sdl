@@ -3,7 +3,7 @@ state-dir ./state
 screenshot-dir ./scrshot
 frameskip 1
 magnify 3
-smooth on
+smooth off
 samplerate 44100
 sound on
 
